@@ -1,38 +1,56 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto+Condensed&family=Roboto:wght@700&display=swap');
+
+/*Inicio*/
+.backgDesign {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: url('Assets/covid.jpg') center;
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.left {
+  display: flex;
+  place-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.left h1 {
+  color: white;
+  font-size: 50px;
+  font-family: 'Roboto Condensed', sans-serif;
+} 
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.right {
+  background: linear-gradient(black, rgba(166, 166, 177, 0.411));
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  place-items: center;
+  text-align: center;
+}
+
+.right h1 {
+  color: white;
+  font-size: 50px;
+  font-family: 'Roboto Condensed', sans-serif;
+} 
+
+.bannerBtn {
+  border-radius: 25px;
+  border: 1px solid white;
+  text-decoration: none;
+  padding: 10px 50px;
+  transition: background 1s;
+  color: black;
+}
+
+.bannerBtn:hover {
+  background: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (max-width: 900px) {
+  .backgDesign {
+    grid-template-columns: 3fr 3fr;
   }
 }
