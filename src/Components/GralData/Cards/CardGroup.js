@@ -1,5 +1,4 @@
 import React from "react";
-import CardItem from "./CardItem";
 
 export default function CardGroup(props) {
   const data = props.cardInfo.data;
