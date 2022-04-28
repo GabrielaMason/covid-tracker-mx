@@ -10,8 +10,6 @@ export default function Charts(props){
 
 
     const data = props.data[props.entidad]
-    console.log(data)
-    const info = props.info
 
 
 
@@ -35,7 +33,7 @@ export default function Charts(props){
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Bar type="" name={props.name} dataKey={info} stroke="#8884d8"  />
+                    <Bar type="" name={props.name} dataKey={props.info} stroke="#8884d8"  />
                 </BarChart>
             </ResponsiveContainer>
         </React.Fragment>
