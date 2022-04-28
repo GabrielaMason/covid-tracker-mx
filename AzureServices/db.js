@@ -1,64 +1,56 @@
-const { Connection, Request } = require("tedious");
+const sql = require('mssql');
 
-
-// Create connection to database
-const config = {
-    authentication: {
-        options: {
-            userName: "adminbda", // update me
-            password: "Password$" // update me
-        },
-        type: "default"
-    },
-    server: "bdacovid.database.windows.net", // update me
-    options: {
-        database: "bdacovid", //update me
-        encrypt: true
+var config = {
+    "user": "adminbda", //default is sa
+    "password": "Password$",
+    "server": "bdacovid.database.windows.net", // for local machine
+    "database": "bdacovid", // name of database
+    "options": {
+        "encrypt": true
     }
-};
+}
 
-const connection = new Connection(config);
-
-// Attempt to connect and execute queries if connection goes through
-connection.on("connect", err => {
-    if (err) {
-        console.error(err.message);
-    } else {
-        queryDatabase();
+sql.connect(config, err => {
+    if(err) {
+        console.log(err);
     }
+    console.log("Connection Successful !");
+
+    new sql.Request().query('select 1 as number', (err, result) => {
+        //handle err
+        console.dir(result)
+        // This example uses callbacks strategy for getting results.
+    })
+
 });
 
+sql.on('error', err => {
+    // ... error handler
+    console.log("Sql database connection error " ,err);
+})
 
 
-const queryDatabase = () => {
-    console.log("Reading rows from the Table...");
 
-    // Read all rows from table
-    const request = new Request(
-        `SELECT * FROM estado`,
-        (err, rowCount) => {
-            if (err) {
-                console.error(err.message);
-            } else {
-                console.log(`${rowCount} row(s) returned`);
-            }
+const fetchData = async () => {
+
+        try {
+            // make sure that any items are correctly URL encoded in the connection string
+            await sql.connect(config)
+            const result = await sql.query("SELECT * FROM estado")
+            return result.recordset
+        } catch (err) {
+            console.log(err)
         }
-    );
 
-    request.on("row", columns => {
-        columns.forEach(column => {
-            console.log("%s\t%s", column.metadata.colName, column.value);
-        });
-    });
-
-    connection.execSql(request);
 }
 
 
 
+fetchData().then((r) => {
+    console.log(r[0]);
+}).catch((e) => {
+    console.log(e)
+})
 
 
-
-
-connection.connect();
 
