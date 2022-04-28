@@ -3,12 +3,15 @@ import CardItem from "./CardItem";
 
 export default function CardGroup(props) {
   const data = props.data["MEXICO PAIS"]
-  console.log("TARJETAS", data)
-
- const totalMuertes = data.reduce((previousV, currentV, index) => previousV + currentV.nuevas_muertes, 0)
- const totalContagios = data.reduce((previousV, currentV, index) => previousV + currentV.nuevas_casos, 0)
-  console.log(totalMuertes)
-  console.log(totalContagios)
+  let suma_casos = 0;
+  let suma_muertes = 0;
+  // Sumar nuevos_casos
+  for(let i = 0; i < data.length; i++) {
+    suma_casos += parseInt(data[i].nuevos_casos);
+    suma_muertes += parseInt(data[i].nuevas_muertes);
+  }
+  console.log("Suma casos: ", suma_casos);
+  console.log("SUma muertes: ", suma_muertes);
 
 
   const [cardInfo, setCardInfo] = useState({
