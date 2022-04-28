@@ -1,16 +1,16 @@
 import React from "react";
 
-function MXStateSelection() {
+function MXStateSelection(props) {
     return(
         <select className="form-select" aria-label="Default select example">
-            <option defaultValue>¿A qué estado de México viajaste?</option>
+            <option defaultValue>{props.text}</option>
             <option value="Aguascalientes">Aguascalientes</option>
             <option value="Baja California">Baja California</option>
             <option value="Baja California Sur">Baja California Sur</option>
             <option value="Campeche">Campeche</option>
             <option value="Chiapas">Chiapas</option>
             <option value="Chihuahua">Chihuahua</option>
-            <option value="CDMX">Ciudad de México</option>
+            <option value="Distrito Federal">Ciudad de México</option>
             <option value="Coahuila">Coahuila</option>
             <option value="Colima">Colima</option>
             <option value="Durango">Durango</option>

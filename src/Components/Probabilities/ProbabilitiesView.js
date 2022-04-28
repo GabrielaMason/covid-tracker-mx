@@ -16,7 +16,7 @@ export default function Probabilities(){
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <MXStateSelection />
+                            <MXStateSelection text={"¿A qué estado de México viajaste?"}/>
                             <div className="mt-3">
                                 <label className="from-label">Fecha en la que viajé</label>
                                 <DateSelection />
@@ -39,7 +39,7 @@ export default function Probabilities(){
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <MXStateSelection />
+                            <MXStateSelection text={"¿A qué estado de México viajaste?"}/>
                             <div className="mt-3">
                                 <label className="from-label">Fecha en la que viajaré</label>
                                 <DateSelection />
