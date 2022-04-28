@@ -10,8 +10,6 @@ export default function CardGroup(props) {
     suma_casos += parseInt(data[i].nuevos_casos);
     suma_muertes += parseInt(data[i].nuevas_muertes);
   }
-  console.log("Suma casos: ", suma_casos);
-  console.log("SUma muertes: ", suma_muertes);
 
 
   const [cardInfo, setCardInfo] = useState({
@@ -25,17 +23,17 @@ export default function CardGroup(props) {
         },
         {
           title: "Muertes",
-          amount: 5,
+          amount: suma_muertes,
           type: "black",
           date: data[data.length-1].fecha, 
           description: "Nuevas muertes registradas",
         },
         {
           title: "Total de contagiados",
-          amount: 5,
+          amount: suma_casos,
           type: "black",
           date: data[data.length-1].fecha, 
-          description: "Nuevas muertes registradas",
+          description: "Registro actualizado",
         }
       ]
     });

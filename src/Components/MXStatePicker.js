@@ -1,6 +1,9 @@
 import React from "react";
+import Charts from "./GralData/Graphs/Charts";
 
 function MXStateSelection(props) {
+
+
     return(
         <select className="form-select" aria-label="Default select example">
             <option defaultValue>{props.text}</option>
@@ -37,6 +40,7 @@ function MXStateSelection(props) {
             <option value="YUCATAN">Yucatán</option>
             <option value="ZACATECAS">Zacatecas</option>
         </select>
+        
     );
 }
 
