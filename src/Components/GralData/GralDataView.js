@@ -2,6 +2,7 @@ import React from "react";
 import MXStateSelection from "../MXStatePicker";
 import CardItem from "./Cards/CardItem";
 import ChartsMX from "./Graphs/Charts";
+import Charts from "./Graphs/Charts";
 
 export default function GralData(){
     return (
@@ -18,6 +19,11 @@ export default function GralData(){
             <div className="container mt-5">
                 <MXStateSelection text={"Ve la información de un Estado de la República"}/>
             </div>
+
+
+            <Charts />
+
+
         </div>
     )
 }

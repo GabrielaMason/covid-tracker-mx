@@ -1,11 +1,8 @@
 import React, { PureComponent } from 'react';
-import Chart from './Chart.js';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, ComposedChart } from 'recharts';
 
-//import Deaths from "./Deaths";
-//import Vaccines from "./Vaccines";
-//import Cases from "./AverageCases";
+const Chart = () => {
 
-export default function ChartsMX(props){
     const data = [
         {
             name: 'Page A',
@@ -51,30 +48,21 @@ export default function ChartsMX(props){
         },
     ];
 
+    return (
+        <ResponsiveContainer width="100%" height="100%">
+            <ComposedChart data={data}>
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <CartesianGrid stroke="#f5f5f5" />
+                <Bar dataKey="uv" barSize={20} fill="#7CC9F9" name="Nuevos infectados"/>
+                <Line type="pv" dataKey="average" stroke="#ff7300" dot={false} name="Promedio ultimos 7 dias"/>
+            </ComposedChart>
+        </ResponsiveContainer>
+    );
 
 
-
-
-
-    return(
-        <div className="container-fluid  mt-4 d-flex justify-content-around">
-            <div>
-                <h5>Promedio Últimos 30 Días</h5>
-                {/*<Cases data={props.data}/>*/}
-
-
-            </div>
-            <div>
-                <h5>Muertes Diarias</h5>
-                {/*<Deaths data={props.data}/>*/}
-            </div>
-            <div>
-                <h5>Vacunados</h5>
-                {/*<Vaccines data={props.data}/>*/}
-            </div>
-        </div>
-    )
 }
 
-
-
+export default Chart;
