@@ -14,6 +14,8 @@ function App() {
     axios.get('http://localhost:3001')
     .then(res => {
       setInfo(res.data)
+
+        // console.log(res.data["MEXICO PAIS"][0])
     })
     .catch(err => {
       console.log(err)
