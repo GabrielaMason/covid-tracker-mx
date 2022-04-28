@@ -5,19 +5,30 @@ export default function CardGroup(props) {
   const data = props.data["MEXICO PAIS"]
   console.log("TARJETAS", data)
 
- // const totalMuertes = data.reduce((previousV, currentV, index) => previousV + currentV.nuevas_muertes, 0)
+ const totalMuertes = data.reduce((previousV, currentV, index) => previousV + currentV.nuevas_muertes, 0)
+ const totalContagios = data.reduce((previousV, currentV, index) => previousV + currentV.nuevas_casos, 0)
+  console.log(totalMuertes)
+  console.log(totalContagios)
+
 
   const [cardInfo, setCardInfo] = useState({
       data: [
         {
           title: "Infectados",
-          amount: 10,
+          amount: data[data.length-1].nuevos_casos,
           date: data[data.length-1].fecha,
           type: "blue",
           description: "Nuevos casos confirmados",
         },
         {
           title: "Muertes",
+          amount: 5,
+          type: "black",
+          date: data[data.length-1].fecha, 
+          description: "Nuevas muertes registradas",
+        },
+        {
+          title: "Total de contagiados",
           amount: 5,
           type: "black",
           date: data[data.length-1].fecha, 
