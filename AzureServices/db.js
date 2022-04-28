@@ -48,19 +48,15 @@ const fetchData = async () => {
                 return r;
             }, Object.create(null));
 
-            // //Buscamos en la base de datos la informacion de mexico pais
-            // const resPais = await sql.query("SELECT covid_info.fecha, SUM(covid_info.nuevos_casos) as casos, SUM(covid_info.nuevas_muertes) as muertes FROM estado \n" +
-            //     "INNER JOIN covid_info\n" +
-            //     "ON covid_info.estado_id = estado.id \n" +
-            //     "GROUP By covid_info.fecha\n")
-            //
-            // //Convertimos la fecha a clase Date
-            // const fechaObjeto = resPais.recordset.map(function (a) {
-            //     a.fecha = new Date(a.fecha);
-            //     return a;
-            // });
-            //
-            // console.log(fechaObjeto);
+            //Buscamos en la base de datos la informacion de mexico pais
+            const resPais = await sql.query("SELECT covid_info.fecha, SUM(covid_info.nuevos_casos) as casos, SUM(covid_info.nuevas_muertes) as muertes FROM estado \n" +
+                "INNER JOIN covid_info\n" +
+                "ON covid_info.estado_id = estado.id \n" +
+                "GROUP By covid_info.fecha\n" +
+                "ORDER BY  covid_info.fecha ")
+
+
+            DATA["MEXICO PAIS"] = resPais.recordset;
 
 
 
@@ -81,9 +77,9 @@ const fetchData = async () => {
 
 
 fetchData().then((r) => {
-    // for(let key in r){
-    //     console.log(key, r[key].length)
-    // }
+    for(let key in r){
+        console.log(key, r[key][0])
+    }
 
 }).catch((e) => {
     console.log(e)
