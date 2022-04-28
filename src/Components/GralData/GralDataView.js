@@ -69,12 +69,12 @@ export default function GralData(props){
                 </div>
                 <div className={styles.chart2}>
                     <div className={styles.chart}>
-                        <Charts data={props.data} info={"nuevos_casos"} />
+                        <Charts data={props.data} info={"nuevos_casos"} entidad={"MEXICO PAIS"} name={"Nuevos casos"}/>
                     </div>
                 </div>
                 <div className={styles.chart2}>
                     <div className={styles.chart}>
-                        <Charts data={props.data} info={"nuevas_muertes"} />
+                        <Charts data={props.data} info={"nuevas_muertes"} entidad={"MEXICO PAIS"} name={"Defunciones registradas"} />
                     </div>
                 </div>
                 <div className="container mt-5">

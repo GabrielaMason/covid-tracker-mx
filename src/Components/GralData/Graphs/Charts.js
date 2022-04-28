@@ -1,5 +1,5 @@
 import React from 'react';
-import {ResponsiveContainer, ComposedChart, XAxis, YAxis, Tooltip, Legend, CartesianGrid, Bar, Line, LineChart} from "recharts";
+import {ResponsiveContainer, ComposedChart, XAxis, YAxis, Tooltip, Legend, CartesianGrid, Bar, Line, LineChart, BarChart} from "recharts";
 
 
 //import Deaths from "./Deaths";
@@ -9,7 +9,7 @@ import {ResponsiveContainer, ComposedChart, XAxis, YAxis, Tooltip, Legend, Carte
 export default function Charts(props){
 
 
-    const data = props.data["MEXICO PAIS"]
+    const data = props.data[props.entidad]
     console.log(data)
     const info = props.info
 
@@ -19,9 +19,9 @@ export default function Charts(props){
     return(
         <React.Fragment>
             <ResponsiveContainer width="100%" height="100%">
-                <LineChart
+                <BarChart
                     width={500}
-                    height={300}
+                    height={600}
                     data={data}
                     margin={{
                         top: 5,
@@ -31,12 +31,12 @@ export default function Charts(props){
                     }}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="fecha" />
+                    <XAxis dataKey="fecha" name="fecha"/>
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Line type="nuevos casos" name="nuevos casos" dataKey={info} stroke="#8884d8" dot={false} />
-                </LineChart>
+                    <Bar type="" name={props.name} dataKey={info} stroke="#8884d8"  />
+                </BarChart>
             </ResponsiveContainer>
         </React.Fragment>
 
