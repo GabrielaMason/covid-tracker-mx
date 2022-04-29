@@ -1,5 +1,4 @@
 import React from "react";
-import MXStateSelection from "../MXStatePicker";
 import CardItem from "./Cards/CardItem";
 import ChartsMX from "./Graphs/Charts";
 import Charts from "./Graphs/Charts";
@@ -26,9 +25,6 @@ export default function GralData(props){
                     <div className={`${styles.chart}`}>
                         <Charts data={props.data} info={"nuevas_muertes"} entidad={"MEXICO PAIS"} name={"Defunciones registradas"} />
                     </div>
-                </div>
-                <div className="container mt-5">
-                    <MXStateSelection text={"Ve la información de un Estado de la República"}/>
                 </div>
             </div>
         </React.Fragment>
