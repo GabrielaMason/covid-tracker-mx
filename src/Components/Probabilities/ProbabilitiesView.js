@@ -16,7 +16,7 @@ export default function Probabilities(){
             body: {
                 date1: startDate,
                 date2: endDate, 
-                estado: "AGUASCALIENTES"
+                estado: valueState
             }, 
           })
           .then((response) => {
@@ -27,7 +27,7 @@ export default function Probabilities(){
 
     return (
         <div id="probabilities" className="mb-3">
-            <h1>Tú y el covid</h1>
+            <h1 className="mt-3">Tú y el covid</h1>
             <div className="container d-flex justify-content-around">
                 <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">¿Estaré expuesto al covid?</button>
                 <div className="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -82,7 +82,7 @@ export default function Probabilities(){
                                 onChange={(update) => {
                                     setDateRange(update);
                                 }}
-                                minDate={new Date ("2020", "02", "26")}
+                                minDate={new Date ()}
                                 maxDate={new Date ("2022", "04", "22")}
                                 isClearable={true}
                                 placeholderText="Haz clic aquí para las fechas."
@@ -92,7 +92,6 @@ export default function Probabilities(){
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={createPost}>Ver resultados</button>
-
                         </div>
                         </div>
                     </div>
